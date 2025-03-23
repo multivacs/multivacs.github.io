@@ -4,10 +4,13 @@
       <h1>
         <span class="site-title">{{site.username}}</span>
         <span class="site-description">{{site.user_title}}</span>
+        {% if site.email %}
+        <span class="site-description">{{site.email}}</span>
+        {% endif %}
       </h1>
       <div class="header-icons">
         {% if site.email %}
-        <a aria-label="Send email" href="mailto:{{site.email}}"><i class="icon fa fa-envelope"></i>{{site.email}}</a>
+        <a aria-label="Send email" href="mailto:{{site.email}}"><i class="icon fa fa-envelope"></i></a>
         {% endif %}
         {% if site.twitter_username %}
         <a aria-label="My Twitter" target="_blank" href="#"><i class="icon fa fa-twitter" aria-hidden="true"></i></a>
