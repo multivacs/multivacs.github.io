@@ -1,18 +1,30 @@
 <div id="particles-js">
   <div class="header">
+      <img class="profile-pic" src="/assets/img/profile.jpg" alt="Profile Picture">
       <h1>
         <span class="site-title">{{site.username}}</span>
         <span class="site-description">{{site.user_title}}</span>
       </h1>
       <div class="header-icons">
-        <a aria-label="Send email" href="#"><i class="icon fa fa-envelope"></i></a>
+        {% if site.email %}
+        <a aria-label="Send email" href="mailto:{{site.email}}"><i class="icon fa fa-envelope"></i>{{site.email}}</a>
+        {% endif %}
+        {% if site.twitter_username %}
         <a aria-label="My Twitter" target="_blank" href="#"><i class="icon fa fa-twitter" aria-hidden="true"></i></a>
+        {% endif %}
+        {% if site.gplus_username %}
         <a aria-label="My Google Plus" target="_blank" href="#"><i class="icon fa fa-google-plus" aria-hidden="true"></i></a>
-        <a aria-label="My Github" target="_blank" href="#"><i class="icon fa fa-github-alt" aria-hidden="true"></i></a>
+        {% endif %}
+        {% if site.github_username %}
+        <a aria-label="My Github" target="_blank" href="https://github.com/{{site.github_username}}"><i class="icon fa fa-github-alt" aria-hidden="true"></i></a>
+        {% endif %}
       </div>
       <div class="header-links">
         <a class="link" href="#about" data-scroll>About Me</a>
+        <a class="link" href="/assets/static/cv.pdf" data-scroll>CV</a>
         <a class="link" href="#projects" data-scroll>Projects</a>
+        <a class="link" href="#skills" data-scroll>Skills</a>
+        <a class="link" href="{{site.blog_url}}" data-scroll>My Blog</a>
       </div>
   </div>
   <a class="down" href="#about" data-scroll><i class="icon fa fa-chevron-down" aria-hidden="true"></i></a>

@@ -45,6 +45,16 @@
   }
 }
 
+.profile-pic {
+  width: 120px; /* Ajusta según el tamaño que desees */
+  height: 120px;
+  border-radius: 50%; /* Hace que la imagen sea circular */
+  object-fit: cover; /* Asegura que la imagen se recorte bien */
+  display: block;
+  margin: 0 auto 10px; /* Centrar y dar espacio inferior */
+  border: 3px solid white; /* Borde opcional */
+}
+
 .header-links {
   margin: 10px;
   .link {
