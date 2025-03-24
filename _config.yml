@@ -1,6 +1,7 @@
 # Site settings
 title: Mario Calpena
 description: My portfolio on the web
+url: https://multivacs.com
 # baseurl: "/particle" # the subpath of your site, e.g. /blog
 # url: "localhost:3000" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
 
