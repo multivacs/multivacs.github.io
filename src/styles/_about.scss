@@ -28,6 +28,22 @@
 }
 
 .user-details {
+  display: flex;
+  align-items: center; /* Alinea el texto y la imagen */
+  justify-content: space-between; /* Separa los elementos */
+  gap: 20px; /* Espacio entre el texto y la imagen */
+}
+
+
+/* .user-details {
   text-align: center;
   margin: 5px auto;
+} */
+
+.profile-image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ccc;
 }
