@@ -1,7 +1,5 @@
-@use 'vars' as v;
-
 #particles-js {
-  background: v.$main;
+  background: $main;
   display: flex;
   vertical-align: bottom;
   width: 100%;
@@ -30,7 +28,7 @@
     display: block;
     line-height: 1;
     color: #FFF;
-    @media only screen and (min-width:v.$cut){
+    @media only screen and (min-width:$cut){
       margin: 0;
       font-size: 100px;
     }
@@ -41,7 +39,7 @@
     line-height: 1;
     color: #FFF;
     margin-top: 10px;
-    @media only screen and (min-width:v.$cut){
+    @media only screen and (min-width:$cut){
       font-size: 40px;
     }
   }
@@ -64,7 +62,7 @@
     text-decoration: none;
     font-size: 15px;
     margin: 10px;
-    @media only screen and (min-width:v.$cut){
+    @media only screen and (min-width:$cut){
       font-size: 20px;
     }
   }
@@ -86,14 +84,14 @@
     border: 2px solid #FFF;
     transition: all .7s;
     &:hover {
-      color: v.$main;
+      color: $main;
       background: #FFF;
     }
     &:active {
-      color: v.$main;
+      color: $main;
       background: #FFF;
     }
-    @media only screen and (min-width:v.$cut) {
+    @media only screen and (min-width:$cut) {
       width: 35px;
       height: 35px;
       font-size: 35px;
@@ -125,10 +123,10 @@
       -webkit-animation: pulse 1.3s infinite;
       animation: pulse 1.3s infinite;
       &:hover {
-        color: v.$sec;
+        color: $sec;
       }
       &:active {
-        color: v.$sec;
+        color: $sec;
       }
   }
 }
