@@ -1,8 +1,10 @@
+@use 'vars' as v;
+
 #about {
   width: 90%;
   margin: 0 auto;
   max-width: 960px;
-  @media only screen and (min-width: $cut) {
+  @media only screen and (min-width: v.$cut) {
     width: 80%;
   }
 }
@@ -21,7 +23,7 @@
   p {
     font-size: 16px;
   }
-  @media only screen and (min-width: $cut) {
+  @media only screen and (min-width: v.$cut) {
     flex-wrap: nowrap;
     font-size: 75px;
   }
