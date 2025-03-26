@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "gulp"
+    "dev": "gulp",
+    "build": "gulp sass && gulp js"
   },
   "author": "Nathan Randecker",
   "license": "ISC",
