@@ -1,22 +1,33 @@
-.timeline {
-    position: relative;
-    max-width: 700px;
-    margin: auto;
-  }
-  
-  .timeline-item {
-    position: relative;
-    padding: 20px;
-    border-left: 3px solid #007bff;
-    margin-bottom: 20px;
-  }
-  
-  .timeline-marker {
-    width: 12px;
-    height: 12px;
-    background-color: #007bff;
-    border-radius: 50%;
-    position: absolute;
-    left: -6px;
-    top: 20px;
-  }
+/* Opcional: Mejorar el diseño de las cards y el carrusel */
+.carousel-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 30px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
