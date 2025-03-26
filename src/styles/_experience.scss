@@ -1,0 +1,22 @@
+.timeline {
+    position: relative;
+    max-width: 700px;
+    margin: auto;
+  }
+  
+  .timeline-item {
+    position: relative;
+    padding: 20px;
+    border-left: 3px solid #007bff;
+    margin-bottom: 20px;
+  }
+  
+  .timeline-marker {
+    width: 12px;
+    height: 12px;
+    background-color: #007bff;
+    border-radius: 50%;
+    position: absolute;
+    left: -6px;
+    top: 20px;
+  }
