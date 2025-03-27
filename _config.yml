@@ -18,6 +18,6 @@ blog_url: https://blog.multivacs.com
 
 # Google-analytics
 google-analytics:
-  id: ""
+  id: "G-BQVSHE1YZL"
 
 exclude: ['package.json', 'src' , 'node_modules']
