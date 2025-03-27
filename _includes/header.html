@@ -8,7 +8,7 @@
         <span style="font-size: 20px; color: white; display: block; margin-top: 5px;">{{site.email}}</span>
         {% endif %}
       </h1>
-      <div class="header-icons">
+      <nav class="header-icons">
         {% if site.email %}
         <a aria-label="Send email" href="mailto:{{site.email}}"><i class="icon fa fa-envelope"></i></a>
         {% endif %}
@@ -21,14 +21,14 @@
         {% if site.github_username %}
         <a aria-label="My Github" target="_blank" href="https://github.com/{{site.github_username}}"><i class="icon fa fa-github-alt" aria-hidden="true"></i></a>
         {% endif %}
-      </div>
-      <div class="header-links">
+      </nav>
+      <nav class="header-links">
         <a class="link" href="#about" data-scroll>About Me</a>
-        <a class="link" href="/assets/static/cv.pdf" data-scroll>CV</a>
+        <a class="link" href="/assets/static/cv.pdf" target="_blank">CV</a>
         <a class="link" href="#projects" data-scroll>Projects</a>
         <a class="link" href="#skills" data-scroll>Skills</a>
-        <a class="link" href="{{site.blog_url}}" data-scroll>My Blog</a>
-      </div>
+        <a class="link" href="{{site.blog_url}}" target="_blank">My Blog</a>
+      </nav>
   </div>
   <a class="down" href="#about" data-scroll><i class="icon fa fa-chevron-down" aria-hidden="true"></i></a>
 </div>
