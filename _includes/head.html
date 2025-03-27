@@ -12,8 +12,8 @@
   <meta name="theme-color" content="#09f">
 
   <!-- SEO Open Graph: compartir enlace -->
-  <meta property="og:title" content="{% site.title %}">
-  <meta property="og:description" content="{% site.description %}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
   <meta property="og:img" content="/assets/img/favicon/android-chrome-512x512.png">
   <meta property="og:img:alt" content="Icon of multivacs website">
 
