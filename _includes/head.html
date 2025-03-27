@@ -6,6 +6,21 @@
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
-  <link rel="stylesheet" href="{{ "/assets/css/main.css" | prepend: site.baseurl }}">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico">
+
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#09f">
+
+  <!-- SEO Open Graph: compartir enlace -->
+  <meta property="og:title" content="{% site.title %}">
+  <meta property="og:description" content="{% site.description %}">
+  <meta property="og:img" content="/assets/img/favicon/android-chrome-512x512.png">
+  <meta property="og:img:alt" content="Icon of multivacs website">
+
+  <!-- SEO -->
+  <link rel="alternate" href="https://multivacs.com/es" hreflang="es-ES">
+  <link rel="canonical" href="https://multivacs.com">
+
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
 </head>
