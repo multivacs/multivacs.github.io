@@ -80,7 +80,7 @@
     width: 20px;
     height: 20px;
     font-size: 20px;
-    padding: 10px;
+    padding: 5px;
     margin: 5px;
     border-radius: 50%;
     border: 2px solid #FFF;
@@ -94,9 +94,9 @@
       background: #FFF;
     }
     @media only screen and (min-width:v.$cut) {
-      width: 35px;
-      height: 35px;
-      font-size: 35px;
+      width: 45px;
+      height: 45px;
+      font-size: 30px;
     }
   }
 }
