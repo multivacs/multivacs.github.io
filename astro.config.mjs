@@ -6,5 +6,7 @@ import robotsTxt from "astro-robots-txt"
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), robotsTxt()],
-  site: 'https://multivacs.com/'
+  site: 'https://multivacs.com/',
+  output: 'static',
+  base: '/',
 })
