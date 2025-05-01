@@ -8,5 +8,5 @@ export default defineConfig({
   integrations: [tailwind(), robotsTxt()],
   site: 'https://multivacs.com/',
   output: 'static',
-  base: 'multivacs.github.io',
+  base: '/',
 })
