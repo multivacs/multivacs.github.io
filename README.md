@@ -46,7 +46,7 @@ pnpm install
 2. Iniciar servidor en modo desarrollo
 
 ```bash
-pnpm run dev
+pnpm dev
 ```
 
 ### Production Deployment
@@ -54,7 +54,7 @@ pnpm run dev
 1. Compilar el proyecto dentro de la carpeta `dist/`
 
 ```bash
-pnpm run build
+pnpm build
 ```
 
 ## 📂 Estructura Proyecto
