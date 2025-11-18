@@ -6,7 +6,6 @@
 </a>
 <p></p>
 </div>
-<div align="center">
 
 ## What It Has
 ---
@@ -73,8 +72,6 @@ multivacs.github.io/
 └── package.json            # archivo de dependencias Node.js
 ```
 
-
-</div>
 
 ## 🙏 Fork
 
