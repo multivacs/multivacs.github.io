@@ -2,6 +2,16 @@
 const { slug, data } = Astro.props;
 
 const { title, description, image, author, date, categories, tags, pin } = data
+
+const dateObj = new Date(date)
+
+// Formateamos la fecha al estilo "20 Nov"
+const dateFormatted = new Intl.DateTimeFormat('es-ES', {
+  day: '2-digit',
+  month: 'short',
+  year: 'numeric'
+}).format(dateObj);
+
 ---
 
 <article>
@@ -13,6 +23,6 @@ const { title, description, image, author, date, categories, tags, pin } = data
 	<div class="flex flex-col justify-center">
 		<h3 class="mb-2 text-2xl font-bold leading-tight text-white">{title}</h3>
 		<p class="mb-4 text-gray-300 max-w-sm">{description}</p>
-		<span class="text-xs">{date} · 🕐 Lectura en 2 min</span>
+		<span class="text-xs">{dateFormatted} · 🕐 Lectura en 2 min</span>
 	</div>
 </article>
