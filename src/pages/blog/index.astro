@@ -1,8 +1,6 @@
 ---
 import LayoutBlog from "@/layouts/LayoutBlog.astro"
-import { getCollection  } from "astro:content"
-
-const posts = await getCollection('posts')
+import BlogPostGrid from "@/components/blog/BlogPostGrid.astro"
 
 import Briefcase from "@/components/icons/Briefcase.astro"
 import CodeIcon from "@/components/icons/Code.astro"
@@ -17,37 +15,8 @@ import TitleSection from "@/components/TitleSection.astro"
 
 <main class="px-4">
 
-  <div class="py-16 md:py-36">
-    <h1 class="text-center text-4xl font-extrabold">Blog</h1>
-
-    <section aria-label="Posts del blog sobre tecnología y data science">
-      <div class="px-4 mx-auto max-w-screen-xl">
-        <div class="grid gap-6 md:grid-cols-2">
-          {
-            posts.map(post => {
-              const { slug, data } = post
-              const { title, description, author, date, categories, tags, pin, image } = data
-
-              return(
-                <article>
-                  <a href={`/blog/posts/${slug}`} class="mb-2 xl:mb-0 transition hover:scale-110">    
-                  <img src={`/${image.path}`} alt={image.alt} class="mr-5 w-48 rounded" />
-                  </a>
-                  <div class="flex flex-col justify-center">
-                    <h3 class="mb-2 text-2xl font-bold leading-tight text-white">{title}</h3>
-                    <p class="mb-4 text-gray-300 max-w-sm">{description}</p>
-                    <span class="text-xs">⌛ Lectura en 2 min</span>
-                  </div>
-                  
-                  
-                </article>
-              )
-            })
-          }
-        </div>
-      </div>
-    </section>
-  </div>
+    <BlogPostGrid />
+  
 </main>
 
 

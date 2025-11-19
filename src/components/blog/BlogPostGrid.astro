@@ -1,0 +1,28 @@
+---
+import BlogCard from './BlogCard.astro';
+import { getCollection  } from "astro:content"
+
+const posts = await getCollection('posts')
+
+const { title, description, image_path, href, category, date, readtime } = Astro.props;
+---
+
+<div class="py-16 md:py-36">
+    <h2 class="text-center text-4xl font-extrabold">Latest</h2>
+
+    <section aria-label="Posts del blog sobre tecnología y data science">
+      <div class="px-4 mx-auto max-w-screen-xl">
+        <div class="grid gap-6 md:grid-cols-3">
+          {
+            posts.map(post => {
+              const { slug, data } = post
+
+              return(
+                <BlogCard slug={slug} data={data}/>
+              )
+            })
+          }
+        </div>
+      </div>
+    </section>
+</div>

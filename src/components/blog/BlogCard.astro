@@ -1,0 +1,18 @@
+---
+const { slug, data } = Astro.props;
+
+const { title, description, image, author, date, categories, tags, pin } = data
+---
+
+<article>
+	<a href={`/blog/posts/${slug}`} class="mb-2 xl:mb-0 transition hover:scale-110">    
+		<img src={`/${image.path}`} alt={title} class="mr-5 w-48 rounded" />
+	</a>
+	<small><a href=`/blog/categories/${categories[0]}`>{categories[0]}</a></small>
+	
+	<div class="flex flex-col justify-center">
+		<h3 class="mb-2 text-2xl font-bold leading-tight text-white">{title}</h3>
+		<p class="mb-4 text-gray-300 max-w-sm">{description}</p>
+		<span class="text-xs">{date} · 🕐 Lectura en 2 min</span>
+	</div>
+</article>
