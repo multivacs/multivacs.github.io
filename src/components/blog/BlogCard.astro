@@ -5,7 +5,7 @@ const { title, description, image, author, date, categories, tags, pin } = data
 
 const dateObj = new Date(date)
 
-// Formateamos la fecha al estilo "20 Nov"
+// Formateamos la fecha al estilo "20 Nov 2025"
 const dateFormatted = new Intl.DateTimeFormat('es-ES', {
   day: '2-digit',
   month: 'short',
@@ -14,15 +14,28 @@ const dateFormatted = new Intl.DateTimeFormat('es-ES', {
 
 ---
 
-<article>
-	<a href={`/blog/posts/${slug}`} class="mb-2 xl:mb-0 transition hover:scale-110">    
-		<img src={`/${image.path}`} alt={title} class="mr-5 w-48 rounded" />
+<article class="group overflow-hidden rounded-xl border border-gray-200 dark:border-gray-800 bg-white/60 dark:bg-gray-900/60 shadow-sm hover:shadow-lg transition-transform duration-200 hover:-translate-y-1">
+	<a href={`/blog/posts/${slug}`} class="block overflow-hidden">    
+		<img src={`/${image.path}`} alt={title} class="w-full h-52 md:h-64 object-cover transition-transform duration-300 group-hover:scale-105" />
 	</a>
-	<small><a href=`/blog/categories/${categories[0]}`>{categories[0]}</a></small>
+
+	<div class="p-5">
+		<div class="flex items-start justify-between mb-3">
+			<small><a href=`/blog/categories/${categories[0]}` class="inline-block text-xs font-medium uppercase tracking-wide px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700">{categories[0]}</a></small>
+		</div>
+		{ pin ? <span class="text-xs text-yellow-400 ml-2">📌</span> : null }
 	
-	<div class="flex flex-col justify-center">
-		<h3 class="mb-2 text-2xl font-bold leading-tight text-white">{title}</h3>
-		<p class="mb-4 text-gray-300 max-w-sm">{description}</p>
-		<span class="text-xs">{dateFormatted} · 🕐 Lectura en 2 min</span>
+		<a href={`/blog/posts/${slug}`} class="block hover:underline">
+			<h3 class="text-lg md:text-xl font-extrabold text-gray-900 dark:text-white leading-tight mb-2">{title}</h3>
+		</a>
+		<p class="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">{description}</p>
+
+		<div class="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
+			<!-- { author ? <span class="font-medium text-gray-700 dark:text-gray-200">{author}</span> : null }
+			<span>·</span>  -->
+			<time datetime={dateObj.toISOString()} class="text-gray-400">{dateFormatted}</time>
+			<span>·</span>
+			<span class="flex items-center gap-1">🕑 <span class="text-gray-600 dark:text-gray-300">Lect. 2 min</span></span>
+		</div>
 	</div>
 </article>

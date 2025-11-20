@@ -5,10 +5,16 @@ import { getCollection  } from "astro:content"
 const posts = (await getCollection('posts')).sort((a, b) => {
   return new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
   });
+
+interface Props {
+  title: string
+}
+
+const { title } = Astro.props
 ---
 
 <div class="py-16 md:py-36">
-    <h2 class="text-center text-4xl font-extrabold">Latest</h2>
+    <h2 class="text-center text-4xl font-extrabold mb-5">{title}</h2>
 
     <section aria-label="Posts del blog sobre tecnología y data science">
       <div class="px-4 mx-auto max-w-screen-xl">
