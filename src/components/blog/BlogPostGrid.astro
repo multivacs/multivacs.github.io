@@ -21,10 +21,9 @@ const { title } = Astro.props
         <div class="grid gap-6 md:grid-cols-3">
           {
             posts.map(post => {
-              const { slug, data } = post
 
               return(
-                <BlogCard slug={slug} data={data}/>
+                <BlogCard post={post}/>
               )
             })
           }

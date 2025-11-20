@@ -1,5 +1,7 @@
 ---
-const { slug, data } = Astro.props;
+const { post } = Astro.props;
+
+const { slug, data } = post;
 
 const { title, description, image, author, date, categories, tags, pin } = data
 
@@ -12,6 +14,27 @@ const dateFormatted = new Intl.DateTimeFormat('es-ES', {
   year: 'numeric'
 }).format(dateObj);
 
+const rawSource = post.body ?? "";
+const textOnly = rawSource
+  // eliminar bloques de código
+  .replace(/```[\s\S]*?```/g, " ")
+  // inline code backticks -> contenido
+  .replace(/`([^`]+)`/g, " $1 ")
+  // imágenes y links -> usar el texto alternativo/label
+  .replace(/!\[.*?\]\(.*?\)/g, " ")
+  .replace(/\[([^\]]+)\]\([^\)]+\)/g, " $1 ")
+  // eliminar HTML tags
+  .replace(/<[^>]+>/g, " ")
+  // eliminar caracteres markdown residuales
+  .replace(/[#>*_\-\r\n]/g, " ")
+  // colapsar espacios
+  .replace(/\s+/g, " ")
+  .trim();
+
+const wordsCount = textOnly ? textOnly.split(" ").filter(Boolean).length : 0;
+
+// tiempo de lectura aproximado (200 wpm)
+const readMinutes = Math.max(1, Math.ceil(wordsCount / 200));
 ---
 
 <article class="group overflow-hidden rounded-xl border border-gray-200 dark:border-gray-800 bg-white/60 dark:bg-gray-900/60 shadow-sm hover:shadow-lg transition-transform duration-200 hover:-translate-y-1">
@@ -35,7 +58,7 @@ const dateFormatted = new Intl.DateTimeFormat('es-ES', {
 			<span>·</span>  -->
 			<time datetime={dateObj.toISOString()} class="text-gray-400">{dateFormatted}</time>
 			<span>·</span>
-			<span class="flex items-center gap-1">🕑 <span class="text-gray-600 dark:text-gray-300">Lect. 2 min</span></span>
+			<span class="flex items-center gap-1">🕑 <span class="text-gray-600 dark:text-gray-300">Lect. {readMinutes} min</span></span>
 		</div>
 	</div>
 </article>
