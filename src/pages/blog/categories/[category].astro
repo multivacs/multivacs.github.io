@@ -1,0 +1,24 @@
+---
+import LayoutBlog from "@/layouts/LayoutBlog.astro"
+import BlogPostGrid from "@/components/blog/BlogPostGrid.astro"
+import { getCollection, render } from "astro:content"
+
+export async function getStaticPaths() {
+    const posts = await getCollection('posts');
+
+    return posts.map((post) => ({
+        params: { category: post.data.categories[0] },
+        props: {filteredPosts: posts.filter(p => p.data.categories.includes(post.data.categories[0]))},
+    }))
+}
+const { category } = Astro.params;
+const { filteredPosts } = Astro.props;
+---
+
+<LayoutBlog title={`Categoría: ${category}`} description={`Posts en la categoría ${category}`}>
+    <main class="mx-auto px-4 py-12 md:py-24">
+        <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white">Categoría: {category}</h1>
+
+        <BlogPostGrid title={`Posts en "${category}"`} posts={filteredPosts} />
+
+    </main>
