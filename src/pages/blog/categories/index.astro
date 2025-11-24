@@ -1,0 +1,31 @@
+---
+import LayoutBlog from "@/layouts/LayoutBlog.astro"
+import { getCollection } from "astro:content"
+
+
+const posts = await getCollection('posts');
+
+
+---
+
+<LayoutBlog title='Multivacs - Listado de categorías' description=`Listado de categorías de posts del blog`>}>
+    <main class="mx-auto px-4 py-12 md:py-24">
+        <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white">Categorías:</h1>
+
+        <ul class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {
+                [...new Set(posts.flatMap(post => post.data.categories))].map(category => {
+                    const categoryPosts = posts.filter(post => post.data.categories.includes(category));
+                    return (
+                        <li>
+                            <a href=`/blog/categories/${category}` class="block p-6 bg-gray-100 dark:bg-gray-800 rounded-lg shadow hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                                <h2 class="text-xl font-semibold text-gray-900 dark:text-white">{category}</h2>
+                                <p class="mt-2 text-gray-600 dark:text-gray-300">{categoryPosts.length} {categoryPosts.length === 1 ? 'post' : 'posts'}</p>
+                            </a>
+                        </li>
+                    )
+                })
+            }
+    </main>
+
+</LayoutBlog>
