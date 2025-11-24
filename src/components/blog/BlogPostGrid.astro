@@ -2,15 +2,22 @@
 import BlogCard from './BlogCard.astro';
 import { getCollection  } from "astro:content"
 
-const posts = (await getCollection('posts')).sort((a, b) => {
-  return new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
-  });
+
 
 interface Props {
-  title: string
+  title: string,
+  posts?: Array<any>,
 }
 
 const { title } = Astro.props
+let posts = Astro.props.posts as Array<any> | undefined;
+
+// Si no se pasan posts, usar todos los posts
+if (!posts) {
+  posts = (await getCollection('posts')).sort((a, b) => {
+  return new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+})};
+
 ---
 
 <div class="py-16 md:py-36">
@@ -20,7 +27,7 @@ const { title } = Astro.props
       <div class="px-4 mx-auto max-w-screen-xl">
         <div class="grid gap-6 md:grid-cols-3">
           {
-            posts.map(post => {
+            posts?.map(post => {
 
               return(
                 <BlogCard post={post}/>
