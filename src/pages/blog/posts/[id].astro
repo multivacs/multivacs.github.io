@@ -25,6 +25,28 @@ const dateFormatted = new Intl.DateTimeFormat('es-ES', {
 }).format(dateObj);
 
 const { Content } = await render(post)
+
+const rawSource = post.body ?? "";
+const textOnly = rawSource
+  // eliminar bloques de código
+  .replace(/```[\s\S]*?```/g, " ")
+  // inline code backticks -> contenido
+  .replace(/`([^`]+)`/g, " $1 ")
+  // imágenes y links -> usar el texto alternativo/label
+  .replace(/!\[.*?\]\(.*?\)/g, " ")
+  .replace(/\[([^\]]+)\]\([^\)]+\)/g, " $1 ")
+  // eliminar HTML tags
+  .replace(/<[^>]+>/g, " ")
+  // eliminar caracteres markdown residuales
+  .replace(/[#>*_\-\r\n]/g, " ")
+  // colapsar espacios
+  .replace(/\s+/g, " ")
+  .trim();
+
+const wordsCount = textOnly ? textOnly.split(" ").filter(Boolean).length : 0;
+
+// tiempo de lectura aproximado (200 wpm)
+const readMinutes = Math.max(1, Math.ceil(wordsCount / 200));
 ---
 
 <LayoutBlog title={title} description={description}>
@@ -50,7 +72,7 @@ const { Content } = await render(post)
                 <div class="mt-4 flex flex-wrap items-center gap-3 text-sm text-gray-500 dark:text-gray-400">              
                     <time datetime={dateObj.toISOString()} class="text-gray-400">{dateFormatted}</time>
                     <span aria-hidden="true">·</span>
-                    <span class="flex items-center gap-1">🕑 <span class="text-gray-600 dark:text-gray-300">Lect. 2 min</span></span>
+                    <span class="flex items-center gap-1">🕑 <span class="text-gray-600 dark:text-gray-300">Lect. {readMinutes} min</span></span>
                 </div>
             </header>
 
