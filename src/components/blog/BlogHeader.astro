@@ -45,9 +45,9 @@ const navItems = [
     <ThemeToggle />
   </nav>
 
-  <div>
-    <input id="search-post" type="search" placeholder="Buscar..." class="ml-4 px-3 py-2 rounded-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-  </div>
+  <form role="search">
+    <input id="search-post" type="search" name="search" placeholder="Buscar..." class="ml-4 px-3 py-2 rounded-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+  </form>
 </header>
 
 <script>
@@ -57,11 +57,12 @@ const navItems = [
     const query = event.target.value.toLowerCase();
     const posts = document.querySelectorAll("article");
 
-    posts.forEach((post) => {
+    posts.forEach(post => {
       const title = post.querySelector("h3").textContent.toLowerCase();
       const description = post.querySelector("p").textContent.toLowerCase();
+      const category = post.dataset.category.toLowerCase();
 
-      if (title.includes(query) || description.includes(query)) {
+      if (title.includes(query) || description.includes(query) || category.includes(query)) {
         post.style.display = "block";
       } else {
         post.style.display = "none";
