@@ -26,11 +26,10 @@ const navItems = [
 ---
 
 <header
-  class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2"
+  class="fixed top-0 z-10 w-full mt-2 flex justify-center items-center"
 >
-  <nav
-    class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center"
-  >
+  <!-- Navigation centered -->
+  <nav class="flex items-center justify-center gap-2 max-w-screen-xl w-full text-sm font-medium rounded-full text-gray-600 dark:text-gray-200">
     {
       navItems.map((link) => (
         <a
@@ -42,27 +41,38 @@ const navItems = [
         </a>
       ))
     }
-    <ThemeToggle />
+    
   </nav>
 
-  <form role="search">
-    <input id="search-post" type="search" name="search" placeholder="Buscar..." class="ml-4 px-3 py-2 rounded-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-  </form>
+  <!-- Search and theme toggle on the right -->
+  <div class="flex justify-end items-center gap-2">
+    <form role="search">
+      <input
+        id="search-post"
+        type="search"
+        name="search"
+        placeholder="Buscar..."
+        class="px-3 py-2 rounded-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </form>
+    <ThemeToggle />
+  </div>
+
 </header>
 
 <script>
   // Evento búsqueda de posts (ocultar/mostrar posts según búsqueda)
   const searchInput = document.getElementById("search-post");
-  searchInput.addEventListener("input", (event) => {
-    const query = event.target.value.toLowerCase();
+  searchInput?.addEventListener("input", (event) => {
+    const query = event.target?.value.toLowerCase();
     const posts = document.querySelectorAll("article");
 
     posts.forEach(post => {
-      const title = post.querySelector("h3").textContent.toLowerCase();
-      const description = post.querySelector("p").textContent.toLowerCase();
-      const category = post.dataset.category.toLowerCase();
+      const title = post.querySelector("h3")?.textContent.toLowerCase();
+      const description = post.querySelector("p")?.textContent.toLowerCase();
+      const category = post.dataset.category?.toLowerCase();
 
-      if (title.includes(query) || description.includes(query) || category.includes(query)) {
+      if (title?.includes(query) || description?.includes(query) || category?.includes(query)) {
         post.style.display = "block";
       } else {
         post.style.display = "none";
