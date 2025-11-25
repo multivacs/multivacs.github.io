@@ -2,6 +2,7 @@
 import "@fontsource-variable/onest"
 
 import BlogHeader from "../components/blog/BlogHeader.astro"
+import BlogSidebar from "@/components/blog/BlogSidebar.astro"
 import BlogFooter from "../components/blog/BlogFooter.astro"
 import { ClientRouter } from "astro:transitions"
 
@@ -17,12 +18,34 @@ const { description, title } = Astro.props
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+    <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
+
     <ClientRouter />
+
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- SEO Meta tags -->
+    <link rel="canonical" href="https://multivacs.com/blog/" />
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="data scientist, blog, alicante, mario calpena, ciencia de datos, machine learning" />
+
+    <!-- Open Graph / Twitter card-->
+    <meta property="og:url" content="https://multivacs.com/blog/" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:image" content="https://multivacs.com/og-image.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:domain" content="multivacs.com" />
+    <!-- <meta name="twitter:site" content="@multivacs_data" />
+    <meta name="twitter:creator" content="@multivacs_data" /> -->
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://multivacs.com/og-image.jpg" />
   </head>
 
   <body class="relative text-black dark:text-white">

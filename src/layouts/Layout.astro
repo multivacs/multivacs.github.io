@@ -17,12 +17,34 @@ const { description, title } = Astro.props
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
     <ClientRouter />
+
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- SEO Meta tags -->
+    <link rel="canonical" href="https://multivacs.com/" />
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="data scientist, alicante, mario calpena, ciencia de datos, machine learning" />
+
+    <!-- Open Graph / Twitter card-->
+     <meta property="og:url" content="https://multivacs.com/" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:image" content="https://multivacs.com/og-image.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:domain" content="multivacs.com" />
+    <!-- <meta name="twitter:site" content="@multivacs_data" />
+    <meta name="twitter:creator" content="@multivacs_data" /> -->
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://multivacs.com/og-image.jpg" />
   </head>
 
   <body class="relative text-black dark:text-white">
