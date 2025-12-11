@@ -2,7 +2,7 @@
   "name": "multivacs.github.io",
   "type": "module",
   "version": "1.0",
-  "packageManager": "pnpm@10.22.0",
+  "packageManager": "pnpm@10.25.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

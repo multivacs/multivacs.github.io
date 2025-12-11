@@ -13,6 +13,6 @@ export default defineConfig({
   base: '/',
   markdown: {
     remarkPlugins: [remarkMath],
-    rehypePlugins: [rehypeKatex],
+    rehypePlugins: [[rehypeKatex, { output: 'mathml' }]],
   },
 })

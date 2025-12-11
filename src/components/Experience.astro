@@ -1,20 +1,30 @@
 ---
 import ExperienceItem from "./ExperienceItem.astro"
+import ExperienceItemNew from "./ExperienceItemNew.astro"
+
 const EXPERIENCE = [
   {
     date: "Enero 2022 - Actualidad",
-    title: "IT Analyst | Proyectos en Data Science y Data Engineering",
+    title: "IT Analyst",
     company: "Corteva Biologicals",
-    description:
-      "Creación de Dashboard de ventas para el equipo comercial de EMEA, con segmentación de clientes mediante RFM y k-means. Diseñar e implementar procesos ETL con Pentaho Data Integration. Desarrollo fullstack con herramientas como FileMaker, destacando la creación de un CRM y dashboards para el equipo comercial en EMEA.",
+    description: [
+      "Implementé un modelo de machine learning para la predicción de ventas utilizando SARIMA, mejorando la precisión de las previsiones trimestrales en un 15%. Este modelo fue desplegado en un entorno de producción utilizando Flask y Docker.",
+      "Creación de Dashboard de ventas para el equipo comercial de EMEA, con segmentación de clientes mediante análisis RFM y k-means.",
+      "Implementé flujos ETL con Pentaho y SQL, para la extracción y limpieza de datos desde el ERP, permitiendo unificar y crear reportes de ventas entre sociedades.",
+      "Desarrollo de CRM interno en FileMaker y dashboards en Power Bi para el equipo comercial de EMEA.",
+      "Administración de sistemas Windows y Linux, y gestión de ERP X3 (Sage). Soporte de primer y segundo nivel a usuarios en entorno multinacional.",
+    ],
   },
+  
   {
     date: "Julio 2021 - Diciembre 2021",
     title: "Técnico informático en prácticas",
-    company: "Corteva Biologicals",
-    description:
-      "Implantación de metodologías de planificación y desarrollo de proyectos en el área IT. Desarrollo de aplicaciones internas para gestión de proyectos.Implantación de sistema de ticketing para soporte técnico.",
-  },
+    company: "Stoller Europe",
+    description: [
+      "Introducí metodologías de planificación y desarrollo de proyectos, buenas prácticas y documentación de procesos.", 
+      "Desarrollé un sistema de ticketing para soporte técnico que permitió al departamento de IT mejorar la respuesta ante incidentes y la satisfacción del usuario. La aplicación fue desarrollada y desplegada en FileMaker.",
+    ]
+    },
 ]
 ---
 
@@ -22,7 +32,7 @@ const EXPERIENCE = [
   {
     EXPERIENCE.map((experience) => (
       <li class="">
-        <ExperienceItem {...experience} />
+        <ExperienceItemNew {...experience} />
       </li>
     ))
   }

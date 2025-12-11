@@ -26,22 +26,19 @@ const navItems = [
 ---
 
 <header
-  class="top-0 z-10 w-full mt-2 flex justify-center items-center border-b border-gray-300 dark:border-gray-600"
+  class="top-0 z-10 w-full mt-2 px-4 md:px-6 flex flex-wrap justify-between items-center border-b border-gray-300 dark:border-gray-600 h-16"
 >
-  <div class="flex flex-wrap justify-between  p-4 items-center gap-10">
 
-  
-  <div class="items-center space-x-3">
-    <a href="/blog" id="avatar" class="rounded">
-        <img src="/multivac.png" alt="Multivacs Logo" class="size-16 rounded-full object-cover"/>
-    </a>
-  </div>
+  <a class="flex items-center gap-2 space-x-3 rounded" href="/blog">
+      <img src="/multivacs.png" alt="Multivacs Logo" class="size-6 rounded-full object-cover"/>
+      <span class="text-lg font-semibold text-gray-800 dark:text-gray-200">Multivacs Blog</span>
+  </a>
 
   
 
   <!-- Navigation -->
-  <nav class="items-center hidden justify-between gap-2 w-full md:flex md:w-auto md:order-1">
-    <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium rounded-base md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  text-gray-600 dark:text-gray-200">
+  <nav class="relative items-center hidden justify-center gap-2 w-full md:flex md:w-auto md:order-1">
+    <ul class="flex flex-col p-4 justify-center md:p-0 mt-4 font-medium rounded-base md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  text-gray-600 dark:text-gray-200">
     {
       navItems.map((link) => (
         <li>
@@ -60,7 +57,7 @@ const navItems = [
 
   <!-- Navigation collapsed & search -->
   <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse items-center gap-5">
-        <button type="button" class="px-3 py-2 md:bg-transparent md:p-0 hover:text-blue-500 dark:hover:text-blue-500">Newsletter</button>
+        <!-- <button type="button" class="px-3 py-2 md:bg-transparent md:p-0 hover:text-blue-500 dark:hover:text-blue-500">Newsletter</button> -->
         <ThemeToggle />
         <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary" aria-controls="navbar-sticky" aria-expanded="false">
             <svg class="size-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/></svg>
@@ -80,28 +77,28 @@ const navItems = [
     </form>
     <ThemeToggle />
   </div>-->
-  </div>
+
 </header>
 
 <script>
   // Evento búsqueda de posts (ocultar/mostrar posts según búsqueda)
-  const searchInput = document.getElementById("search-post");
-  searchInput?.addEventListener("input", (event) => {
-    const query = event.target?.value.toLowerCase();
-    const posts = document.querySelectorAll("article");
-
-    posts.forEach(post => {
-      const title = post.querySelector("h3")?.textContent.toLowerCase();
-      const description = post.querySelector("p")?.textContent.toLowerCase();
-      const category = post.dataset.category?.toLowerCase();
-
-      if (title?.includes(query) || description?.includes(query) || category?.includes(query)) {
-        post.style.display = "block";
-      } else {
-        post.style.display = "none";
-      }
-    });
-  });
+  //const searchInput = document.getElementById("search-post");
+  //searchInput?.addEventListener("input", (event) => {
+  //  const query = event.target?.value.toLowerCase();
+  //  const posts = document.querySelectorAll("article");
+//
+  //  posts.forEach(post => {
+  //    const title = post.querySelector("h3")?.textContent.toLowerCase();
+  //    const description = post.querySelector("p")?.textContent.toLowerCase();
+  //    const category = post.dataset.category?.toLowerCase();
+//
+  //    if (title?.includes(query) || description?.includes(query) || category?.includes(query)) {
+  //      post.style.display = "block";
+  //    } else {
+  //      post.style.display = "none";
+  //    }
+  //  });
+  //});
 
 
   document.addEventListener("astro:page-load", () => {

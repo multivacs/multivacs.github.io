@@ -14,7 +14,6 @@
 - Sección de proyectos para porfolio
 - Blog integrado con posts escritos en Markdown
 - RSS Feed para el blog
-- Newsletter
 
 
 ## Technology Stack
