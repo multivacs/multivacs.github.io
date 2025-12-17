@@ -7,6 +7,8 @@ import Pandas from "./icons/Pandas.astro"
 import Link from "./icons/Link.astro"
 import Blog from "./icons/BlogPost.astro"
 import LinkButton from "./LinkButton.astro"
+import PyTorch from "./icons/PyTorch.astro"
+import TensorFlow from "./icons/TensorFlow.astro"
 
 const TAGS = {
   PANDAS: {
@@ -28,6 +30,16 @@ const TAGS = {
     name: "Tableau",
     class: "bg-white text-black",
     icon: Tableau,
+  },
+  PYTORCH: {
+    name: "PyTorch",
+    class: "bg-white text-black",
+    icon: PyTorch,
+  },
+  TENSORFLOW: {
+    name: "TensorFlow",
+    class: "bg-white text-black",
+    icon: TensorFlow,
   }
 }
 
@@ -51,21 +63,14 @@ const PROJECTS = [
     tags: [TAGS.TABLEAU, TAGS.PYTHON, TAGS.PANDAS],
   },
   {
-    title: "YTDSales - A sales dashboard and CRM",
-    description:
-      "Plataforma desarrollada en FileMaker desde cero como herramienta de análisis para managers y el equipo comercial de EMEA. Responsable de la extracción e integridad de los datos desde el ERP, visualizaciones y desarrollo fullstack.",
-    image: "/projects/ytdsales.webp",
-    tags: [],
-  },
-  {
     title: "ADHD Prediction",
     description:
-      "Proyecto de final de carrera donde tratamos de predecir la presencia de TDAH en niños usando datos tabulares y redes neuronales.",
+      "Proyecto de final de carrera donde traté de predecir la presencia de TDAH en niños usando datos tabulares y redes neuronales.",
     image: "/projects/tdah.webp",
     link: "https://zenodo.org/records/15185925",
     post: "/blog/posts/2024-02-25-prediccion-tdah-redes",
     github: "https://github.com/multivacs/TFG2023",
-    tags: [TAGS.PYTHON, TAGS.PANDAS],
+    tags: [TAGS.PYTHON, TAGS.TENSORFLOW, TAGS.PYTORCH],
   },
 ]
 
