@@ -30,7 +30,7 @@ posts = (posts ?? [])
     </h3>
 
     <a
-        href="/blog"
+        href="/blog/"
         class="text-sm font-medium text-primary hover:underline"
         aria-label="Ver todas las entradas del blog"
       >
@@ -45,6 +45,18 @@ posts = (posts ?? [])
           <BlogCard post={post} />
         ))}
       </div>
+
+      <div class="w-full mt-8 flex justify-center">
+        <a
+        href="/blog/"
+        class="text-xl mx-auto font-medium text-primary p-4 bg-blue-900 rounded-lg ring-1 ring-slate-300 align-middle
+              hover:bg-blue-800"
+        aria-label="Ir a la web del blog"
+        >
+          Ir al Blog
+        </a>
+      </div>
+      
     )}
   </div>
 </section>
