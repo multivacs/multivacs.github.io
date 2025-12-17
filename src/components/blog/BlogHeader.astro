@@ -1,5 +1,6 @@
 ---
 import ThemeToggle from "../ThemeToggle.astro"
+import MailIcon from "../icons/Mail.astro"
 
 const navItems = [
   {
@@ -13,11 +14,6 @@ const navItems = [
     url: "/blog/categories/",
   },
   {
-    title: "Newsletter",
-    label: "newsletter",
-    url: "/blog/newsletter",
-  },
-  {
     title: "Sobre mí",
     label: "sobre-mi",
     url: "/",
@@ -26,7 +22,9 @@ const navItems = [
 ---
 
 <header
-  class="top-0 z-10 w-full mt-2 px-4 md:px-6 flex flex-wrap justify-between items-center border-b border-gray-300 dark:border-gray-600 h-16"
+  class="top-0 z-10 w-full mt-2 px-4 flex flex-wrap justify-between items-center border-b border-gray-300 h-16
+        md:px-6
+        dark:border-gray-600"
 >
 
   <a class="flex items-center gap-2 space-x-3 rounded" href="/blog">
@@ -34,16 +32,43 @@ const navItems = [
       <span class="text-lg font-semibold text-gray-800 dark:text-gray-200">Multivacs Blog</span>
   </a>
 
-  
+  <!-- Navigation collapsed -->
+  <div class="flex items-center gap-3 space-x-3 
+              md:order-2 md:space-x-0 md:gap-5 rtl:space-x-reverse">
+        <a 
+          href="/blog/newsletter"
+          class="px-3 py-2
+                md:bg-transparent
+                hover:text-blue-500 dark:hover:text-blue-500">
+          <MailIcon />
+        </a>
+        <ThemeToggle />
+        <button
+            id="menuButton"
+            type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base
+                  md:hidden
+                  hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary"
+            aria-expanded="false">
+            <svg class="size-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/></svg>
+        </button>
+    </div>
 
-  <!-- Navigation -->
-  <nav class="relative items-center hidden justify-center gap-2 w-full md:flex md:w-auto md:order-1">
-    <ul class="flex flex-col p-4 justify-center md:p-0 mt-4 font-medium rounded-base md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  text-gray-600 dark:text-gray-200">
+  <!-- Navigation expanded -->
+  <nav
+    id="mainMenu"
+    class="hidden absolute right-4 top-10 z-20 w-56 mt-2 justify-center gap-2 shadow-lg rounded-md ring-1 ring-black/10 bg-gray-50 dark:bg-gray-950
+          md:flex md:w-auto md:order-1 md:bg-transparent md:dark:bg-transparent md:static md:mt-0 md:ring-0 md:shadow-none">
+    <ul class="flex flex-col p-4 justify-center mt-4 font-medium rounded-base text-gray-600 dark:text-gray-200
+              md:p-0 md:space-x-8 md:flex-row md:mt-0 md:border-0
+              rtl:space-x-reverse">
     {
       navItems.map((link) => (
         <li>
           <a
-            class="block px-3 py-2 md:bg-transparent md:p-0 hover:text-blue-500 dark:hover:text-blue-500"
+            class="block px-3 py-2
+                  md:bg-transparent md:p-0
+                  hover:text-blue-500 dark:hover:text-blue-500"
             aria-label={link.label}
             href={link.url}
           >
@@ -55,53 +80,71 @@ const navItems = [
   </ul>
   </nav>
 
-  <!-- Navigation collapsed & search -->
-  <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse items-center gap-5">
-        <!-- <button type="button" class="px-3 py-2 md:bg-transparent md:p-0 hover:text-blue-500 dark:hover:text-blue-500">Newsletter</button> -->
-        <ThemeToggle />
-        <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary" aria-controls="navbar-sticky" aria-expanded="false">
-            <svg class="size-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/></svg>
-        </button>
-    </div>
-
-  <!-- Search and theme toggle on the right 
-  <div class="flex items-center gap-2 mr-20">
-    <form role="search">
-      <input
-        id="search-post"
-        type="search"
-        name="search"
-        placeholder="Buscar..."
-        class="px-3 py-2 rounded-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
-      />
-    </form>
-    <ThemeToggle />
-  </div>-->
-
 </header>
 
 <script>
-  // Evento búsqueda de posts (ocultar/mostrar posts según búsqueda)
-  //const searchInput = document.getElementById("search-post");
-  //searchInput?.addEventListener("input", (event) => {
-  //  const query = event.target?.value.toLowerCase();
-  //  const posts = document.querySelectorAll("article");
-//
-  //  posts.forEach(post => {
-  //    const title = post.querySelector("h3")?.textContent.toLowerCase();
-  //    const description = post.querySelector("p")?.textContent.toLowerCase();
-  //    const category = post.dataset.category?.toLowerCase();
-//
-  //    if (title?.includes(query) || description?.includes(query) || category?.includes(query)) {
-  //      post.style.display = "block";
-  //    } else {
-  //      post.style.display = "none";
-  //    }
-  //  });
-  //});
 
+  const MENU_STATE_KEY = "menu-open";
+  const MOBILE_BREAKPOINT = 768; // md
+  
 
   document.addEventListener("astro:page-load", () => {
+    // --- MENÚ ---
+    const menuButton = document.getElementById('menuButton');
+    const mainMenu = document.getElementById('mainMenu');
+
+    if (!menuButton || !mainMenu) return;
+
+    const menuLinks = mainMenu.querySelectorAll("a");
+
+    // --- helpers ---
+    const isMobile = () => window.innerWidth < MOBILE_BREAKPOINT;
+
+    const openMenu = () => {
+      mainMenu.classList.remove("hidden");
+      menuButton.setAttribute("aria-expanded", "true");
+      sessionStorage.setItem(MENU_STATE_KEY, "true");
+    };
+
+    const closeMenu = () => {
+      mainMenu.classList.add("hidden");
+      menuButton.setAttribute("aria-expanded", "false");
+      sessionStorage.setItem(MENU_STATE_KEY, "false");
+    };
+
+    // --- restaurar estado ---
+    const isOpen = sessionStorage.getItem(MENU_STATE_KEY) === "true";
+
+    if (isMobile() && isOpen) openMenu();
+    else closeMenu();
+
+    // --- toggle botón ---
+    menuButton.onclick = () => {
+      mainMenu.classList.contains("hidden") ? openMenu() : closeMenu();
+    };
+
+    // --- cerrar al hacer click en un link (mobile) ---
+    menuLinks.forEach((link) => {
+      link.onclick = () => {
+        if (isMobile()) {
+          closeMenu();
+        }
+      };
+    });
+
+    // --- resetear al pasar a desktop ---
+    window.addEventListener("resize", () => {
+      if (!isMobile()) {
+        mainMenu.classList.remove("hidden");
+        menuButton.setAttribute("aria-expanded", "false");
+        sessionStorage.setItem(MENU_STATE_KEY, "false");
+      } else {
+        closeMenu();
+      }
+    });
+
+
+    // --- INTERSECTION OBSERVER ---
     const sections = document.querySelectorAll("section")
     const navItems = document.querySelectorAll("header nav a")
 
@@ -141,24 +184,3 @@ const navItems = [
     }
   })
 </script>
-
-<style>
-  nav {
-    animation: nav-shadown 1s linear both;
-    animation-timeline: scroll();
-    animation-range: 0 100px;
-  }
-
-  nav {
-    @apply bg-transparent;
-  }
-
-  @keyframes nav-shadown {
-    0% {
-      @apply dark:bg-gray-800/0 bg-white/0;
-    }
-    to {
-      @apply shadow-lg ring-1 backdrop-blur ring-white/10;
-    }
-  }
-</style>
