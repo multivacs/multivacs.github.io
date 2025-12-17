@@ -5,7 +5,15 @@ import { getCollection } from "astro:content";
 
 const POSTS_PER_PAGE = 9;
 
-const currentPage = 1;
+export async function getStaticPaths() {
+  const POSTS_PER_PAGE = 9;
+  const all = await getCollection("posts");
+  const pages = Math.ceil(all.length / POSTS_PER_PAGE) || 1;
+  return Array.from({ length: pages }, (_, i) => ({ params: { page: String(i + 1) } }));
+}
+
+const { page } = Astro.params;
+const currentPage = Math.max(1, Number(page || 1));
 
 const allPosts = (await getCollection("posts"))
   .slice()
@@ -18,7 +26,7 @@ const pagePosts = allPosts.slice(start, start + POSTS_PER_PAGE);
 
 <LayoutBlog title={`Multivacs Blog - Data Scientist y Machine Learning con +3 años de experiencia - Página ${currentPage}`} description="Blog dedicado a la ciencia de datos y la tecnología aplicada a diversos campos como la industria, los videojuegos o la física; y cómo poner el poder de los datos a nuestra disposición.">
   <main class="p-4 max-w-screen-xl mx-auto mt-8">
-    
+
     <BlogPostGrid posts={pagePosts} title={`Últimos posts`} />
 
 
