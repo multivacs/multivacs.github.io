@@ -12,9 +12,6 @@
 
 - Página de inicio con introducción, experiencia laboral y proyectos destacados
 - Sección de proyectos para porfolio
-- Blog integrado con posts escritos en Markdown
-- RSS Feed para el blog
-- Newsletter
 
 
 ## Technology Stack
@@ -22,7 +19,6 @@
 
 **Frontend**: ![Tailwind CSS Badge](https://img.shields.io/badge/Tailwind%20CSS-06B6D4?logo=tailwindcss&logoColor=fff&style=flat)  
 **Framework Web**: ![Astro Badge](https://img.shields.io/badge/Astro-FF3E00?logo=astro&logoColor=fff&style=flat)  
-**Contenido Blog**: ![Markdown Badge]()
 
 
 ## Quick Setup
@@ -65,10 +61,8 @@ multivacs.github.io/
 ├── public/  # archivos estáticos (favicon, imágenes...)
 ├── src/                    # app
 │   ├── components/         # componentes astro
-│   ├── content/            # colecciones (posts blog)
 │   ├── layouts/            # plantillas html
 │   └── pages/              # rutas de la página
-├── tests/                  # Test files
 └── package.json            # archivo de dependencias Node.js
 ```
 
