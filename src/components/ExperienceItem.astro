@@ -34,7 +34,7 @@ const { title, company, description, link, date } = Astro.props
         {Array.isArray(description) ? (
             <details class="mt-2 group [&_summary]:cursor-pointer dark:[&_strong]:text-yellow-200 [&_strong]:text-yellow-500 [&_strong]:font-semibold">
                 <summary class="text-muted list-none">
-                    <ul class="list-inside space-y-1">
+                    <ul class="list-outside space-y-1 list-disc">
                         {description.slice(0, 3).map(item => <li set:html={item}></li>)}
                     </ul>
 
@@ -48,7 +48,7 @@ const { title, company, description, link, date } = Astro.props
                 </summary>
 
                 {description.length > 3 && (
-                    <ul class="mt-2 text-muted list inside space-y-1">
+                    <ul class="mt-2 text-muted list inside space-y-1 list-disc">
                         {description.slice(3).map((item) => <li set:html={item}>{item}</li>)}
                     </ul>
                 )}
